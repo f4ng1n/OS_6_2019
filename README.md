@@ -12,10 +12,7 @@ Làm quen với công cụ đồng bộ hóa các processes - semaphore có tên
   * interface SVID (System V Interface Definition)  tiêu chuẩn, mô tả hành vi hệ điều hành UNIX. (https://ru.wikipedia.org/wiki/System_V_Interface_Definition)  
   Trong bộ tiêu chuẩn POSIX, named-semaphore được tạo ra bằng lệnh sau:
 ````
-sem_t *sem_open(const char *name,
-int oflag,
-mode_t mode,
-unsigned int value),
+sem_t *sem_open(const char *name, int oflag, mode_t mode, unsigned int value),
 ````
 trong đó:  
 `name` – tên semaphore;   
