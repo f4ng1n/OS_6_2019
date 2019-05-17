@@ -44,7 +44,7 @@ int main()
     fn = fopen("abc.txt", "a");
     sem = sem_open("/mysem",O_CREAT,0644, 1);
 
-    someArgs_t args;
+    Args_t args;
     args.flag1=true;
 
     pthread_create(&id1, NULL, funcThread,(void*)&args);
