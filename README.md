@@ -111,7 +111,7 @@ Mẫu:
 declare a flag to end the thread;
 declare the identifier of the named semaphore;
 declare a file descriptor;
-flow function ()
+thread function ()
 {
 declare a character type variable and assign it a value of ‘1’;
 yet (the thread termination flag is not set)
@@ -130,9 +130,9 @@ main program ()
 {
 create (or open if exists) a named semaphore;
 create (or open, if exists) a file;
-create a stream from the stream function;
+create a stream from the thread function;
 wait for key presses;
-set the end of flow flag;
+set the end of thread flag;
 wait for the thread to complete;
 close file;
 close named semaphore;
