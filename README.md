@@ -27,7 +27,7 @@ Khi đi vào vùng quan trọng (CS) cần gọi hàm sau:
 Khi đi ra khỏi vùng quan trọng (CS) cần gọi hàm sau:  
 `int sem_post(sem_t *sem)`  
 Semaphore định danh bị xóa (release) bởi lệnh sau:  
-`int sem_post(sem_t *sem)`  
+`int sem_unlink(const char *name)`  
 
 Trong chuẩn SVID, semaphore định danh được tạo ra bởi lệnh:  
 `int semget(key_t key, int nsems, int semflg);`  
