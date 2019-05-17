@@ -3,7 +3,7 @@
 ## Mục đích bài lab:   
 Làm quen với công cụ đồng bộ hóa các processes - semaphore có tên (named semaphore) và các lệnh hệ thống, đảm bảo việc create, close và destroy named-semaphore, cũng như capture và release named-semaphore.  
 ## Lý thuyết cơ bản  
- **Named-semaphore** cho phép tổ chức đồng bộ hóa processes (tiến trình) trong hệ điều hành. Do trong thực tế, khi tạo (create) và đóng (close) nó, chúng ta truyền tên cho nó - chuỗi các ký tự, 2 processes có cơ hội đưa một con trỏ đến cùng một semaphore. Có nghĩa là, khác với mutex và unnamed-semaphore, các semaphores định danh có thể phối hợp truy cập đến vùng tài nguyên quan trọng (Critical Section) không chỉ ở mức độ của vài threads của một chương trình, mà ở mức độ của một vài tiến trình (processes), thực hiện chương trình.  
+ **Named-semaphore** cho phép tổ chức đồng bộ hóa processes (tiến trình) trong hệ điều hành. Do trong thực tế, khi tạo (create) và đóng (close) nó, chúng ta truyền tên cho nó - chuỗi các ký tự, 2 processes có cơ hội đưa một con trỏ đến cùng một semaphore. Có nghĩa là, khác với mutex và unnamed-semaphore, các semaphores định danh có thể phối hợp truy cập đến vùng tài nguyên quan trọng (Critical Resources) không chỉ ở mức độ của vài threads của một chương trình, mà ở mức độ của một vài tiến trình (processes), thực hiện chương trình.  
  
   Trong hệ thống, loại semaphore này thực hiện như một dạng tập tin đặc biệt, thời gian tồn tại (lifetime) của nó không bị giới hạn bởi lifetime của process tạo ra nó.  
   
