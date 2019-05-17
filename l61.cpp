@@ -11,42 +11,52 @@ using namespace std;
 
 FILE *fn;
 sem_t *sem;
-typedef struct someArgs_tag {
+typedef struct Args_tag 
+{
     bool flag1;
-} someArgs_t;
+} Args_t;
 
-void* func1(void *args) {
-    someArgs_t *arg = (someArgs_t*) args;
-while(arg->flag1){
+
+//Function Thread
+void* funcThread(void *args) 
+{
+  cout << "Start writing 1...." << endl;
+  Args_t *arg = (Args_t*) args;
+  while(arg->flag1)
+  {
         sleep(1);
-        char a = '1';
-        sem_wait(sem);
+        sem_wait(sem); 
         for (int i=1;i<=5;i++)
-       {
-        cout<<"1"<<flush;
-        fputs("1",fn);
-        sleep(1);
+        {
+          cout << "1" <<flush;
+          fputs("1",fn);
+          fflush(fn);
+          sleep(1);
         }
  
- sem_post(sem);
+  sem_post(sem);
   }
 }
 
-int main() {
+int main() 
+{
     pthread_t id1;
-    fn = fopen("./file", "a");
+    fn = fopen("abc.txt", "a");
     sem = sem_open("/mysem",O_CREAT,0644, 1);
 
     someArgs_t args;
-  args.flag1=true;
+    args.flag1=true;
 
-   pthread_create(&id1, NULL, func1,(void*)&args);
-getchar();
-  args.flag1 = 0;
-  pthread_join(id1, NULL);
-  sem_close(sem);
-  sem_unlink("/mysem");
-  fclose(fn);
+    pthread_create(&id1, NULL, funcThread,(void*)&args);
+    getchar();
+    args.flag1 = 0;
+
+    pthread_join(id1, NULL);
+    
+    sem_close(sem);
+    sem_unlink("/mysem");
+    
+    fclose(fn);
     return 0;
 }
 
